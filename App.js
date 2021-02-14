@@ -1,21 +1,42 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Main from './screens/Main'
+import Detail from './screens/Detail'
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import { AntDesign } from '@expo/vector-icons';
 
 export default function App() {
+  const Tab = createBottomTabNavigator();
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused }) => {
+            if (route.name === 'Home') {
+              return focused ? <AntDesign name="home" size={24} color="tomato" />
+                : <AntDesign name="home" size={24} color="black" />
+            } else if (route.name === 'Cart') {
+              return focused ? <AntDesign name="shoppingcart" size={24} color="tomato" /> :
+                <AntDesign name="shoppingcart" size={24} color="black" />
+            }
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'gray',
+        }}>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Cart" component={Main} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Home = () => {
+  const Stack = createStackNavigator();
+  return <Stack.Navigator>
+    <Stack.Screen options={{ headerShown: false }} name="Main" component={Main} />
+    <Stack.Screen options={({ route }) => ({ title: route.params.name })} name="Detail" component={Detail} />
+  </Stack.Navigator>
+}
