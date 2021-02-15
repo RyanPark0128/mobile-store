@@ -23,7 +23,8 @@ const Products = ({ navigation }) => {
         itemId: item.id,
         name: item.name,
         price: item.price,
-        brand: item.brand
+        brand: item.brand,
+        image: item.image
       })}>
       <Image style={styles.image} source={{ uri: item.image }} />
       <Text style={styles.title}>{item.name}</Text>
