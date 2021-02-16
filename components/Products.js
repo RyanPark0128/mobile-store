@@ -34,11 +34,9 @@ const Products = ({ navigation }) => {
       </View>
     </TouchableOpacity>
   )
-  return <View>
-    <ScrollView style={{ height: '89%' }} contentContainerStyle={{ alignItems: 'center' }}>
-      {listItems}
-    </ScrollView>
-  </View>
+  return <ScrollView style={{ height: '89%' }} contentContainerStyle={{ alignItems: 'center' }}>
+    {listItems}
+  </ScrollView>
 }
 
 const styles = StyleSheet.create({
