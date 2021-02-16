@@ -17,13 +17,14 @@ const Item = ({ route }) => {
       quantity
     }
     try {
-      const value = await AsyncStorage.getItem('@cart')
+      const value = await AsyncStorage.getItem('@carts')
       if (value === null) {
-        await AsyncStorage.setItem('@cart', JSON.stringify([cartItem]))
+        let list = [cartItem]
+        AsyncStorage.setItem('@carts', JSON.stringify(list))
       } else {
-        console.log(typeOf(value))
-        JSON.parse(value).push(cartItem)
-        await AsyncStorage.setItem('@cart', JSON.stringify(value))
+        let newValue = JSON.parse(value)
+        newValue.push(cartItem)
+        AsyncStorage.setItem('@carts', JSON.stringify(newValue))
       }
     } catch (e) {
       // saving error

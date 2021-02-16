@@ -1,6 +1,7 @@
 import React from 'react';
 import Main from './screens/Main'
 import Detail from './screens/Detail'
+import Checkout from './screens/Checkout'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -27,7 +28,7 @@ export default function App() {
           inactiveTintColor: 'gray',
         }}>
         <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Cart" component={Main} />
+        <Tab.Screen name="Cart" component={Checkout} />
       </Tab.Navigator>
     </NavigationContainer>
   );
