@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   brand: { fontSize: 18, color: 'grey', marginTop: 5 },
   price: { fontSize: 18, marginTop: 5 },
-  button: { position: 'absolute', bottom: '20%', width: '100%', backgroundColor: '#DCDCDC', height: 50, borderRadius: 30, alignItems: 'center', justifyContent: 'center' },
+  button: { position: 'absolute', bottom: '20%', width: '100%', backgroundColor: '#f4511e', height: 50, borderRadius: 30, alignItems: 'center', justifyContent: 'center' },
   subContainer: { flexDirection: 'row', marginTop: 30, width: '100%', alignItems: 'center', justifyContent: 'center' },
   quantity: { fontSize: 30, margin: 30 },
   operator: { padding: '5%' }

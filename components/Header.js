@@ -10,7 +10,7 @@ const Header = () => {
 }
 
 const styles = StyleSheet.create({
-  container: { height: 100, backgroundColor: '#DCDCDC', flexDirection: 'row', paddingTop: 40, justifyContent: 'center', alignItems: 'center' },
+  container: { height: 100, backgroundColor: '#f4511e', flexDirection: 'row', paddingTop: 40, justifyContent: 'center', alignItems: 'center' },
   input: { backgroundColor: 'white', height: 35, width: "80%", borderRadius: 10, paddingLeft: 15 },
   icon: { margin: 10 }
 })

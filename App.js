@@ -38,6 +38,10 @@ const Home = () => {
   const Stack = createStackNavigator();
   return <Stack.Navigator>
     <Stack.Screen options={{ headerShown: false }} name="Main" component={Main} />
-    <Stack.Screen options={({ route }) => ({ title: route.params.name })} name="Detail" component={Detail} />
+    <Stack.Screen options={({ route }) => ({
+      title: route.params.name, headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+    })} name="Detail" component={Detail} />
   </Stack.Navigator>
 }

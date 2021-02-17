@@ -34,13 +34,13 @@ const Products = ({ navigation }) => {
       </View>
     </TouchableOpacity>
   )
-  return <ScrollView style={{ height: '89%' }} contentContainerStyle={{ alignItems: 'center' }}>
+  return <ScrollView style={{ height: '89%', backgroundColor: 'white' }} contentContainerStyle={{ alignItems: 'center' }}>
     {listItems}
   </ScrollView>
 }
 
 const styles = StyleSheet.create({
-  container: { margin: 'auto', marginTop: 50, paddingBottom: 50, width: '80%' },
+  container: { margin: 'auto', marginTop: 50, paddingBottom: 50, width: '80%', backgroundColor: 'white' },
   image: { width: 300, height: 300, },
   title: { marginTop: 10, fontSize: 20 },
   card: { flexDirection: 'row', marginTop: 10 },
