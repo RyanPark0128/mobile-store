@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, ScrollView, Text, Image, View, TouchableOpacity } from 'react-native'
+import { ActivityIndicator, StyleSheet, ScrollView, Text, Image, View, TouchableOpacity } from 'react-native'
 import axios from 'axios'
 
 const Products = ({ navigation }) => {
   const [products, setProducts] = useState([])
+  const [loading, setloading] = useState(true)
   useEffect(() => {
     const fetchData = async () => {
       if (products.length < 1) {
         axios.get('https://ac7j0yqyw7.execute-api.us-east-2.amazonaws.com/dev/products')
           .then((response) => {
             setProducts(response.data)
-            console.log(response.data)
+            setloading(false)
           });
       }
     }
@@ -34,9 +35,13 @@ const Products = ({ navigation }) => {
       </View>
     </TouchableOpacity>
   )
-  return <ScrollView style={{ height: '89%', backgroundColor: 'white' }} contentContainerStyle={{ alignItems: 'center' }}>
-    {listItems}
-  </ScrollView>
+  return loading ? <View style={styles.loading}>
+    <ActivityIndicator size="large" />
+  </View>
+    :
+    <ScrollView style={{ height: '89%', backgroundColor: 'white' }} contentContainerStyle={{ alignItems: 'center' }}>
+      {listItems}
+    </ScrollView>
 }
 
 const styles = StyleSheet.create({
@@ -45,7 +50,8 @@ const styles = StyleSheet.create({
   title: { marginTop: 10, fontSize: 20 },
   card: { flexDirection: 'row', marginTop: 10 },
   brand: { fontSize: 16 },
-  price: { marginLeft: 'auto', fontSize: 16 }
+  price: { marginLeft: 'auto', fontSize: 16 },
+  loading: { height: '80%', justifyContent: 'center', alignItems: 'center' }
 })
 
 export default Products
