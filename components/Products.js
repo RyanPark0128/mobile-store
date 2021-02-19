@@ -1,22 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { ActivityIndicator, StyleSheet, ScrollView, Text, Image, View, TouchableOpacity } from 'react-native'
-import axios from 'axios'
 
-const Products = ({ navigation }) => {
-  const [products, setProducts] = useState([])
-  const [loading, setloading] = useState(true)
-  useEffect(() => {
-    const fetchData = async () => {
-      if (products.length < 1) {
-        axios.get('https://ac7j0yqyw7.execute-api.us-east-2.amazonaws.com/dev/products')
-          .then((response) => {
-            setProducts(response.data)
-            setloading(false)
-          });
-      }
-    }
-    fetchData()
-  }, []);
+const Products = ({ navigation, products, loading }) => {
 
   const listItems = products.map((item, index) =>
     <TouchableOpacity
