@@ -2,11 +2,11 @@ import React from 'react'
 import { StyleSheet, View, Text, TextInput, Image } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons';
 
-const Header = ({ term, setTerm }) => {
+const Header = ({ term, setTerm, setFocus }) => {
 
   return <View style={styles.container}>
     <FontAwesome5 style={styles.icon} name="search" size={24} color="black" />
-    <TextInput onChangeText={text => setTerm(text)} value={term} placeholder="Search" style={styles.input} />
+    <TextInput onFocus={() => setFocus(true)} onBlur={() => setFocus(false)} onChangeText={text => setTerm(text)} value={term} placeholder="Search" style={styles.input} />
   </View>
 
 }
