@@ -32,7 +32,7 @@ const Main = ({ navigation }) => {
   useEffect(() => {
     const fetchData = async () => {
       if (products.length < 1) {
-        axios.get('https://ac7j0yqyw7.execute-api.us-east-2.amazonaws.com/dev/products')
+        await axios.get('https://ac7j0yqyw7.execute-api.us-east-2.amazonaws.com/dev/products')
           .then((response) => {
             setProducts(response.data)
             setloading(false)

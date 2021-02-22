@@ -88,14 +88,14 @@ const Checkout = ({ navigation }) => {
           <Text style={styles.quantity}>
             Qty :
           </Text>
-          <TouchableOpacity onPress={() => handleQuantity(true, index)} style={styles.operator}>
-            <AntDesign name="pluscircleo" size={20} color="black" />
+          <TouchableOpacity onPress={() => handleQuantity(false, index)} style={styles.operator}>
+            <AntDesign name="minuscircleo" size={20} color="black" />
           </TouchableOpacity>
           <Text style={styles.quantity}>
             {item.quantity}
           </Text>
-          <TouchableOpacity onPress={() => handleQuantity(false, index)} style={styles.operator}>
-            <AntDesign name="minuscircleo" size={20} color="black" />
+          <TouchableOpacity onPress={() => handleQuantity(true, index)} style={styles.operator}>
+            <AntDesign name="pluscircleo" size={20} color="black" />
           </TouchableOpacity>
         </View>
       </View>
