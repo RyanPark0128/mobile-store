@@ -11,7 +11,7 @@ const Item = ({ route }) => {
   const fadeIn = () => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 500,
+      duration: 250,
       useNativeDriver: true
     }).start();
   };
@@ -19,7 +19,7 @@ const Item = ({ route }) => {
   const fadeOut = () => {
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: 500,
+      duration: 250,
       useNativeDriver: true
     }).start();
   };
@@ -46,7 +46,7 @@ const Item = ({ route }) => {
       fadeIn()
       setTimeout(() => {
         fadeOut()
-      }, 1000)
+      }, 1500)
     } catch (e) {
       // saving error
     }

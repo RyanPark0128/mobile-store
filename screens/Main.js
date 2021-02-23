@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Header from '../components/Header'
 import Products from '../components/Products'
+import Result from '../components/Result'
 import axios from 'axios'
 
 const Main = ({ navigation }) => {
@@ -42,34 +43,15 @@ const Main = ({ navigation }) => {
     fetchData()
   }, []);
 
-  const listItem = searchList.map((item, index) =>
-    <TouchableOpacity style={styles.searchContainer} key={index} onPress={() => navigation.navigate('Detail', {
-      itemId: item.id,
-      name: item.name,
-      price: item.price,
-      brand: item.brand,
-      image: item.image
-    })}>
-      <Image style={styles.image} source={{ uri: item.image }} />
-      <Text style={styles.title}>
-        {item.name}
-      </Text>
-    </TouchableOpacity>
-  )
-
   return <View>
     <Header style={styles.header} setFocus={setFocus} term={term} setTerm={setTerm} />
-    {searchList && searchList.length > 0 && focus ? <View style={styles.search}>{listItem}</View> : <View></View>}
+    {searchList && searchList.length > 0 && focus ? <Result navigation={navigation} searchList={searchList} /> : <View></View>}
     <Products loading={loading} products={products} navigation={navigation} />
   </View>
 }
 
 const styles = StyleSheet.create({
   header: { position: 'relative' },
-  search: { position: 'absolute', zIndex: 2, top: 100, width: '100%', backgroundColor: 'white' },
-  image: { marginLeft: 30, width: 50, height: 50 },
-  searchContainer: { flexDirection: 'row', alignItems: 'center', paddingTop: 10 },
-  title: { marginLeft: 25, fontSize: 18 }
 })
 
 export default Main
