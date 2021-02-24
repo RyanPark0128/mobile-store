@@ -1,10 +1,8 @@
 import React from 'react';
-import Main from './screens/Main'
-import Detail from './screens/Detail'
 import Checkout from './screens/Checkout'
+import Home from './screens/Home'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function App() {
@@ -32,16 +30,4 @@ export default function App() {
       </Tab.Navigator>
     </NavigationContainer>
   );
-}
-
-const Home = () => {
-  const Stack = createStackNavigator();
-  return <Stack.Navigator>
-    <Stack.Screen options={{ headerShown: false }} name="Main" component={Main} />
-    <Stack.Screen options={({ route }) => ({
-      title: route.params.name, headerStyle: {
-        backgroundColor: '#f4511e',
-      },
-    })} name="Detail" component={Detail} />
-  </Stack.Navigator>
 }

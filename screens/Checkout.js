@@ -20,7 +20,7 @@ const Checkout = ({ navigation }) => {
         setCart(JSON.parse(value))
       }
     } catch (e) {
-      // saving error
+
     }
   }
   useEffect(() => {
